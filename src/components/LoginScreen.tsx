@@ -123,7 +123,7 @@ export default function LoginScreen({ onJoin }: LoginScreenProps) {
 
         <div className="p-3 md:p-4 bg-gray-50 border-t border-gray-100 text-center">
           <p className="text-[10px] md:text-xs text-slate-400 font-mono">
-            Node.js • Socket.io • React
+            Nikhil Lakhavara
           </p>
         </div>
       </motion.div>
