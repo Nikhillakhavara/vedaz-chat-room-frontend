@@ -48,7 +48,7 @@ export default function Sidebar({ currentUser, onlineUsers, isConnected, onLogou
             <MessageSquareCode className="w-5 h-5" />
           </div>
           <span className="font-display font-bold text-lg tracking-tight text-slate-800">
-            Pulse Chat
+            Vedaz Chat Room
           </span>
         </div>
 

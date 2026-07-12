@@ -49,41 +49,41 @@ export default function LoginScreen({ onJoin }: LoginScreenProps) {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 flex flex-col justify-center items-center p-4 selection:bg-blue-100">
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-purple-50 flex flex-col justify-center items-center p-4 selection:bg-blue-100">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5, ease: 'easeOut' }}
-        className="w-full max-w-md bg-white rounded-2xl shadow-xl shadow-gray-100 border border-gray-150 overflow-hidden"
+        className="w-full max-w-md bg-white rounded-2xl shadow-xl border border-gray-200 overflow-hidden"
       >
-        <div className="p-8 text-center border-b border-gray-100 bg-gray-50/50">
-          <div className="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-blue-600 text-white mb-4 shadow-lg shadow-blue-100">
-            <MessageSquare className="w-6 h-6" />
+        <div className="p-6 md:p-8 text-center border-b border-gray-100 bg-gradient-to-br from-blue-50 to-purple-50">
+          <div className="inline-flex items-center justify-center w-12 h-12 md:w-14 md:h-14 rounded-xl bg-gradient-to-br from-blue-600 to-purple-600 text-white mb-3 md:mb-4 shadow-lg">
+            <MessageSquare className="w-6 h-6 md:w-7 md:h-7" />
           </div>
-          <h1 className="font-display text-2xl font-bold text-slate-800 tracking-tight">
-            Pulse Chat
+          <h1 className="font-display text-xl md:text-2xl font-bold text-slate-800 tracking-tight">
+            Vedaz Chat Room
           </h1>
-          <p className="text-sm text-slate-500 mt-1">
-            Real-Time Instant Messaging Experience
+          <p className="text-xs md:text-sm text-slate-500 mt-1">
+            Real-Time Messaging
           </p>
         </div>
 
-        <div className="p-8">
-          <form onSubmit={handleSubmit} className="space-y-6">
-            <div className="flex flex-col items-center mb-4">
-              <div className={`w-20 h-20 rounded-full flex items-center justify-center font-display text-3xl font-bold shadow-inner ${avatarBg}`}>
+        <div className="p-6 md:p-8">
+          <form onSubmit={handleSubmit} className="space-y-5 md:space-y-6">
+            <div className="flex flex-col items-center mb-3 md:mb-4">
+              <div className={`w-16 h-16 md:w-20 md:h-20 rounded-full flex items-center justify-center font-display text-2xl md:text-3xl font-bold shadow-lg transition-all ${avatarBg}`}>
                 {username.trim() ? (
                   username.trim().substring(0, 2).toUpperCase()
                 ) : (
-                  <User className="w-8 h-8" />
+                  <User className="w-7 h-7 md:w-8 md:h-8" />
                 )}
               </div>
-              <p className="text-xs text-slate-400 mt-2 font-mono">Your Avatar Preview</p>
+              <p className="text-[10px] md:text-xs text-slate-400 mt-2 font-mono">Your Avatar</p>
             </div>
 
             <div className="space-y-2">
-              <label htmlFor="username" className="text-sm font-medium text-slate-700 block">
-                Choose a Username
+              <label htmlFor="username" className="text-xs md:text-sm font-medium text-slate-700 block">
+                Choose Username
               </label>
               <div className="relative">
                 <input
@@ -94,8 +94,8 @@ export default function LoginScreen({ onJoin }: LoginScreenProps) {
                     setUsername(e.target.value);
                     if (error) setError('');
                   }}
-                  placeholder="Enter username (e.g., JaneDoe)"
-                  className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 focus:bg-white transition-all text-base"
+                  placeholder="Enter username..."
+                  className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 focus:bg-white transition-all text-sm md:text-base"
                   maxLength={20}
                   autoComplete="off"
                 />
@@ -113,17 +113,17 @@ export default function LoginScreen({ onJoin }: LoginScreenProps) {
 
             <button
               type="submit"
-              className="w-full flex items-center justify-center gap-2 py-3.5 px-4 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-xl shadow-lg shadow-blue-600/15 hover:shadow-blue-600/25 active:scale-[0.98] transition-all cursor-pointer group"
+              className="w-full flex items-center justify-center gap-2 py-3 md:py-3.5 px-4 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-medium rounded-xl shadow-lg hover:shadow-xl active:scale-[0.98] transition-all cursor-pointer group"
             >
-              <span>Join Chat Room</span>
+              <span className="text-sm md:text-base">Join Chat Room</span>
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </button>
           </form>
         </div>
 
-        <div className="p-4 bg-gray-50 border-t border-gray-100 text-center">
-          <p className="text-xs text-slate-400 font-mono">
-            Powered by Node.js, Socket.io & React
+        <div className="p-3 md:p-4 bg-gray-50 border-t border-gray-100 text-center">
+          <p className="text-[10px] md:text-xs text-slate-400 font-mono">
+            Node.js • Socket.io • React
           </p>
         </div>
       </motion.div>
