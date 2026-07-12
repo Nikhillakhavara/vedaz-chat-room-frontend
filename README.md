@@ -1,277 +1,220 @@
-# Pulse Chat - Frontend
+# 💬 Vedaz Chat Room - Frontend
 
-A modern, real-time chat application frontend built with React, Vite, TypeScript, and Socket.io client. Features a beautiful UI with Tailwind CSS, real-time messaging, typing indicators, and dual communication protocols (WebSocket + REST API).
+A modern real-time chat application built with **React**, **TypeScript**, **Vite**, and **Socket.IO Client**. The application connects to a Node.js + Express backend using REST APIs and Socket.IO to provide instant messaging.
 
----
+## 🚀 Live Demo
 
-## 🚀 Tech Stack
+Frontend: https://vedaz-chat-room-frontend.vercel.app
 
-- **React 19** - Modern UI framework
-- **Vite** - Lightning-fast build tool and dev server
-- **TypeScript** - Type-safe development
-- **Socket.io Client** - Real-time bidirectional communication
-- **Tailwind CSS 4** - Utility-first styling
-- **Motion (Framer Motion)** - Smooth animations
-- **Lucide React** - Beautiful icon set
+Backend API: https://vedaz-chat-room-backend.onrender.com
 
 ---
 
-## 📁 Project Structure
+## 📌 Features
 
-```text
+- ✅ Real-time messaging using Socket.IO
+- ✅ Fetch previous chat history
+- ✅ Display message timestamps
+- ✅ Online user list
+- ✅ Typing indicator
+- ✅ Username-based login (dummy authentication)
+- ✅ Responsive and clean UI
+- ✅ REST API integration using Fetch API
+- ✅ Automatic Socket.IO reconnection
+
+---
+
+## 🛠 Tech Stack
+
+- React 19
+- TypeScript
+- Vite
+- Socket.IO Client
+- Fetch API
+- CSS
+
+---
+
+## 📂 Project Structure
+
+```
 frontend/
+│
 ├── src/
 │   ├── components/
-│   │   ├── ChatWindow.tsx       # Main chat interface with message stream
-│   │   ├── LoginScreen.tsx      # User authentication/join screen
-│   │   └── Sidebar.tsx          # Online users panel with status
+│   │   ├── ChatWindow.tsx
+│   │   ├── LoginScreen.tsx
+│   │   └── Sidebar.tsx
+│   │
 │   ├── services/
-│   │   ├── api.ts               # REST API communication layer
-│   │   └── socket.ts            # WebSocket client instance
-│   ├── App.tsx                  # Root component with state management
-│   ├── main.tsx                 # Application entry point
-│   ├── index.css                # Global styles and Tailwind imports
-│   └── types.ts                 # TypeScript type definitions
-├── index.html                   # HTML template
-├── vite.config.ts               # Vite configuration
-├── tsconfig.json                # TypeScript configuration
-├── package.json                 # Dependencies and scripts
-├── .env.example                 # Environment variables template
-└── .env                         # Local environment configuration
+│   │   ├── api.ts
+│   │   └── socket.ts
+│   │
+│   ├── App.tsx
+│   ├── main.tsx
+│   ├── index.css
+│   └── types.ts
+│
+├── public/
+├── .env.example
+├── package.json
+├── tsconfig.json
+└── vite.config.ts
 ```
 
 ---
 
-## 🔧 Environment Configuration
+## ⚙️ Installation
 
-Create a `.env` file in the `frontend/` directory:
-
-```env
-# Backend API endpoint
-VITE_API_URL=http://localhost:3000
-
-# WebSocket server endpoint
-VITE_SOCKET_URL=http://localhost:3000
-```
-
-**Note:** Both URLs point to the same backend server (port 3000) which handles both REST and WebSocket connections.
-
----
-
-## 📦 Installation
+Clone the repository
 
 ```bash
-# Navigate to frontend directory
-cd frontend
+git clone https://github.com/Nikhillakhavara/vedaz-chat-room-frontend.git
+```
 
-# Install dependencies
+Go to project directory
+
+```bash
+cd vedaz-chat-room-frontend
+```
+
+Install dependencies
+
+```bash
 npm install
 ```
 
 ---
 
-## 🏃 Running the Application
+## 🔐 Environment Variables
 
-### Development Mode (Standalone)
+Create a `.env` file in the root directory.
 
-Run the frontend independently on port 5173:
-
-```bash
-npm run dev
+```env
+VITE_API_URL=http://localhost:3000/api
+VITE_SOCKET_URL=http://localhost:3000
 ```
 
-The application will be available at `http://localhost:5173`
+For production
 
-**Important:** Make sure the backend server is running on port 3000 for full functionality.
-
-### Development Mode (Integrated)
-
-The recommended way is to run from the root directory, which starts both frontend and backend together:
-
-```bash
-# From project root
-npm run dev
+```env
+VITE_API_URL=https://vedaz-chat-room-backend.onrender.com/api
+VITE_SOCKET_URL=https://vedaz-chat-room-backend.onrender.com
 ```
-
-The backend serves the frontend through Vite middleware on `http://localhost:3000`
 
 ---
 
-## 🏗️ Building for Production
+## ▶️ Run Development Server
+
+```bash
+npm run dev
+```
+
+Application runs at
+
+```
+http://localhost:5173
+```
+
+---
+
+## 📦 Build
 
 ```bash
 npm run build
 ```
 
-This creates an optimized production build in the `dist/` directory with:
-- Minified JavaScript bundles
-- Optimized CSS
-- Compressed assets
-- Source maps for debugging
-
 ---
 
-## ✨ Features
+## 🌐 Deployment
 
-### Real-Time Communication
-- **Dual Protocol Support**: Switch between WebSocket and REST API for message sending
-- **Live Typing Indicators**: See when other users are typing
-- **Message Status**: Sent, delivered, and read receipts (WhatsApp-style)
-- **Online User Directory**: Real-time list of connected users
+The frontend is deployed on **Vercel**.
 
-### User Experience
-- **Responsive Design**: Works seamlessly on desktop, tablet, and mobile
-- **Search Messages**: Filter chat history by content or username
-- **Date Separators**: Organized message grouping by date
-- **Smooth Animations**: Powered by Motion for fluid transitions
-- **Avatar System**: Color-coded user avatars with initials
+Live URL
 
-### Message Features
-- **Message History**: Persistent chat history loaded on join
-- **Smart Scrolling**: Auto-scroll for new messages, manual scroll for history
-- **System Messages**: Special formatting for system notifications
-- **Time Stamps**: Human-readable time display for each message
-
----
-
-## 🎨 UI Components
-
-### ChatWindow
-Main chat interface featuring:
-- Message stream with auto-scroll
-- Dual protocol switcher (WebSocket/REST)
-- Message search functionality
-- Input field with typing detection
-- Send method indicator
-
-### LoginScreen
-Clean authentication interface:
-- Username input with validation
-- Animated welcome screen
-- Persistent session storage
-
-### Sidebar
-User management panel:
-- Online users list with status indicators
-- Connection status badge
-- Logout functionality
-- Responsive mobile drawer
-
----
-
-## 🔌 API Integration
-
-### REST Endpoints
-
-**Get Messages**
-```typescript
-GET /api/messages
-Response: { success: boolean, messages: Message[] }
+```
+https://vedaz-chat-room-frontend.vercel.app
 ```
 
-**Send Message**
-```typescript
-POST /api/messages
-Body: { username: string, text: string }
-Response: { success: boolean, message: Message }
-```
+---
 
-**Get Online Users**
-```typescript
-GET /api/users
-Response: { success: boolean, users: User[] }
-```
+## 🔌 REST APIs Used
 
-**Mark Messages as Read**
-```typescript
-POST /api/messages/read
-Body: { username: string }
-Response: { success: boolean }
-```
-
-### WebSocket Events
-
-**Client Emits**
-- `user:join` - Join the chat room
-- `message:send` - Send a new message
-- `typing:status` - Update typing status
-- `message:read_all` - Mark all messages as read
-
-**Client Listens**
-- `connect` / `disconnect` - Connection status
-- `message:received` - New message broadcast
-- `user_list:update` - Online users update
-- `typing:update` - Typing status change
-- `messages:marked_read` - Read receipt update
+| Method | Endpoint | Description |
+|---------|----------|-------------|
+| GET | `/api/messages` | Fetch chat history |
+| POST | `/api/messages` | Send new message |
+| GET | `/api/users` | Get online users |
+| POST | `/api/messages/read` | Mark messages as read |
 
 ---
 
-## 🛠️ Development Tools
+## ⚡ Socket.IO Events
 
-### TypeScript Configuration
-Strict type checking enabled with:
-- React JSX support
-- Module resolution for imports
-- Path aliases configured
-- ES2020 target
+### Client → Server
 
-### Vite Configuration
-Optimized for development with:
-- Fast Hot Module Replacement (HMR)
-- React plugin for Fast Refresh
-- Tailwind CSS integration
-- Port 5173 dev server (standalone mode)
+```
+user:join
+message:send
+typing:status
+message:read_all
+```
 
----
+### Server → Client
 
-## 📚 Key Dependencies
-
-| Package | Version | Purpose |
-|---------|---------|---------|
-| react | ^19.0.1 | UI framework |
-| socket.io-client | ^4.8.3 | Real-time communication |
-| tailwindcss | ^4.1.14 | Styling framework |
-| motion | ^12.23.24 | Animations |
-| lucide-react | ^0.546.0 | Icon library |
-| vite | ^6.2.3 | Build tool |
-| typescript | ~5.8.2 | Type safety |
+```
+message:received
+typing:update
+user_list:update
+messages:marked_read
+```
 
 ---
 
-## 🐛 Troubleshooting
+## 📸 Screenshots
 
-### Connection Issues
-- Verify backend is running on port 3000
-- Check `.env` file for correct URLs
-- Ensure no CORS issues (use integrated mode)
+Add application screenshots here.
 
-### Messages Not Appearing
-- Check browser console for errors
-- Verify WebSocket connection status
-- Ensure backend database is initialized
+Example
 
-### Styling Issues
-- Run `npm install` to ensure Tailwind is installed
-- Check that `@tailwindcss/vite` plugin is active
-- Clear browser cache and rebuild
+```
+screenshots/
+    login.png
+    chat.png
+```
+
+---
+
+## 🎯 Design Decisions
+
+- React + Vite chosen for fast development and optimized builds.
+- Fetch API used instead of Axios to keep dependencies minimal.
+- Socket.IO used for instant communication.
+- REST APIs used to fetch existing chat history.
+- Environment variables used for API and Socket server configuration.
+- Modular folder structure for better maintainability.
+
+---
+
+## 📋 Assumptions
+
+- Username authentication is dummy and does not require a password.
+- Messages are stored on the backend.
+- Internet connection is required for real-time communication.
+- Backend service must be running before starting the frontend.
+
+---
+
+## 👨‍💻 Author
+
+**Nikhil Lakhavara**
+
+GitHub
+
+https://github.com/Nikhillakhavara
 
 ---
 
 ## 📄 License
 
-This project is part of the Pulse Chat application suite.
-
----
-
-## 🤝 Contributing
-
-When contributing to the frontend:
-1. Follow the existing component structure
-2. Maintain TypeScript strict mode compliance
-3. Use Tailwind CSS for styling
-4. Keep components focused and reusable
-5. Test on multiple screen sizes
-
----
-
-**Built with ❤️ using React, Vite, and Socket.io**
+This project is developed as part of a Full Stack Developer assignment.
